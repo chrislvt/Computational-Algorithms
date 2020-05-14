@@ -63,7 +63,7 @@ def GaussQuadrature(tau, phi, n):
     d = pi / 2
 
     sum = 0
-    for i in range(n):
+    for i in range(1, n):
         teta = ((c + d) / 2) + ((c - d) / 2) * t[i]
         sum += a[i] * f(tau, phi, teta)
 
@@ -87,10 +87,10 @@ def Magic(N, M, tau):
         phi = a + 2 * i * step
         sum += GaussQuadrature(tau, phi, M)
 
-        phi = a + 2 * (i + 1) * step
+        phi = a + (2 * i + 1) * step
         sum += 4 * GaussQuadrature(tau, phi, M)
 
-        phi = a + 2 * (i + 2) * step
+        phi = a + (2 * i + 2) * step
         sum += GaussQuadrature(tau, phi, M)
 
     sum = sum * (step / 3)
@@ -109,7 +109,7 @@ def Result(N, M, tau):
 # tau = float(input("Введите tau: "))
 
 n = m = 5
-tau = 1
+tau = 5
 
 result = Result(n, m, tau)
 
