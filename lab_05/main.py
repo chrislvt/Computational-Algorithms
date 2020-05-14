@@ -56,15 +56,15 @@ def FindCoefficients(nodes):
 
 # Квадратурная формула Гаусса
 def GaussQuadrature(tau, phi, m):
-    t = FindNodes(n)
+    t = FindNodes(m)
     a = FindCoefficients(t)
 
     c = 0
     d = pi / 2
 
     sum = 0
-    for i in range(1, m):
-        teta = ((c + d) / 2) + ((c - d) / 2) * t[i]
+    for i in range(m):
+        teta = ((d + c) / 2) + ((d - c) / 2) * t[i]
         sum += a[i] * f(tau, phi, teta)
 
     sum = sum * (d - c) / 2
@@ -74,13 +74,11 @@ def GaussQuadrature(tau, phi, m):
 
 # Последовательное интегрирование.
 def Magic(N, M, tau):
-
     a = 0
     b = pi / 2
 
     # Господь всемогущий... это же для вычисления phi!
-    step = abs(b - a) / N
-    phi = a
+    step = (b - a) / N
 
     sum = 0
     for i in range(N // 2 - 1):
@@ -108,9 +106,11 @@ def Result(N, M, tau):
 # n, m = map(int, input("Введите кол-во участков разбиения по phi и по teta: ").split())
 # tau = float(input("Введите tau: "))
 
-n = m = 5
-tau = 10
+n = m = 10
+tau = 0.5
 
 result = Result(n, m, tau)
 
 print(result)
+#
+# # GaussQuadrature(5, 1, 5)
