@@ -95,12 +95,22 @@ def Magic(N, M, tau):
 
     sum = sum * (step / 3)
 
+    return sum
+
 
 # Это был долгий путь...
 def Result(N, M, tau):
     I = Magic(N, M, tau)
-    I *= pi / 4
+    I = (pi / 4) * I
+
+    return I
 
 # n, m = map(int, input("Введите кол-во участков разбиения по phi и по teta: ").split())
 # tau = float(input("Введите tau: "))
-#GaussQuadrature(1, 3)
+
+n = m = 5
+tau = 0.5
+
+result = Result(n, m, tau)
+
+print(result)
