@@ -55,7 +55,7 @@ def FindCoefficients(nodes):
 
 
 # Квадратурная формула Гаусса
-def GaussQuadrature(tau, phi, n):
+def GaussQuadrature(tau, phi, m):
     t = FindNodes(n)
     a = FindCoefficients(t)
 
@@ -63,11 +63,11 @@ def GaussQuadrature(tau, phi, n):
     d = pi / 2
 
     sum = 0
-    for i in range(1, n):
+    for i in range(1, m):
         teta = ((c + d) / 2) + ((c - d) / 2) * t[i]
         sum += a[i] * f(tau, phi, teta)
 
-    sum = sum * (c - d) / 2
+    sum = sum * (d - c) / 2
 
     return sum
 
@@ -109,7 +109,7 @@ def Result(N, M, tau):
 # tau = float(input("Введите tau: "))
 
 n = m = 5
-tau = 5
+tau = 10
 
 result = Result(n, m, tau)
 
