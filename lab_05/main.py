@@ -101,7 +101,7 @@ def Magic(N, M, tau):
 # Это был долгий путь...
 def Result(N, M, tau):
     I = Magic(N, M, tau)
-    I = (pi / 4) * I
+    I = (4 / pi) * I
 
     return I
 
@@ -109,7 +109,7 @@ def Result(N, M, tau):
 # tau = float(input("Введите tau: "))
 
 n = m = 5
-tau = 0.5
+tau = 1
 
 result = Result(n, m, tau)
 
