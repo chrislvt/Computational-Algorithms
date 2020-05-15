@@ -82,7 +82,7 @@ def Magic(N, M, tau):
     step = (b - a) / N
 
     sum = 0
-    for i in range(N // 2 - 1):
+    for i in range(N // 2):
         phi = a + 2 * i * step
         sum += GaussQuadrature(tau, phi, M)
 
@@ -114,7 +114,6 @@ def make_plot(xdata, ydata):
 # tau = float(input("Введите tau: "))
 
 n = m = 10
-
 tau = 0.005
 x, y = [], []
 while tau < 10:
