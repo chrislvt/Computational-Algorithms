@@ -1,5 +1,6 @@
 from math import *
 from gauss_method import *
+import matplotlib.pyplot as plt
 
 
 # Подынтегральная формула
@@ -103,14 +104,23 @@ def Result(N, M, tau):
 
     return I
 
+
+def make_plot(xdata, ydata):
+    plt.plot(xdata, ydata)
+    plt.grid(True)
+    plt.show()
+
 # n, m = map(int, input("Введите кол-во участков разбиения по phi и по teta: ").split())
 # tau = float(input("Введите tau: "))
 
 n = m = 10
-tau = 0.5
 
-result = Result(n, m, tau)
+tau = 0.005
+x, y = [], []
+while tau < 10:
+    result = Result(n, m, tau)
+    x.append(tau)
+    y.append(result)
+    tau += 0.1
 
-print(result)
-#
-# # GaussQuadrature(5, 1, 5)
+make_plot(x, y)
