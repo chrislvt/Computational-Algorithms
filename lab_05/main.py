@@ -73,7 +73,7 @@ def GaussQuadrature(tau, phi, m):
     return sum
 
 
-# Последовательное интегрирование.
+# Метод Симпсона.
 def Magic(N, M, tau):
     a = 0
     b = pi / 2
