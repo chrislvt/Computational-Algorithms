@@ -24,7 +24,7 @@ def dP(x, n,):
 
 
 # Поиск корней полинома Лежандра методом Ньютона.
-def NewtonMethod(a, b, i, n):
+def NewtonMethod(i, n):
     xn = cos(pi * ((4 * i - 1) / (4 * n + 2)))
     xn1 = xn - P(xn, n) / dP(xn, n)
     while abs(xn1 - xn) > 1e-10:
