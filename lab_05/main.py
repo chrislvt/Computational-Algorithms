@@ -1,6 +1,7 @@
 from math import *
 from gauss_method import *
 import matplotlib.pyplot as plt
+from prettytable import PrettyTable
 
 
 # Подынтегральная формула
@@ -38,7 +39,7 @@ def NewtonMethod(i, n):
 def FindNodes(n):
     nodes = []
     for i in range(1, n + 1):
-        nodes.append(NewtonMethod(-1, 1, i, n))
+        nodes.append(NewtonMethod(i, n))
 
     return nodes
 
@@ -112,8 +113,6 @@ def make_plot(xdata, ydata):
     plt.show()
 
 # n, m = map(int, input("Введите кол-во участков разбиения по phi и по teta: ").split())
-# tau = float(input("Введите tau: "))
-
 
 #Обычный
 # n = m = 3
@@ -132,21 +131,41 @@ def make_plot(xdata, ydata):
 #
 
 # Вывод на экран от изменения n
+# n, m = 10, 10
+# tau = 0.005
+# x, y = [], []
+#
+# for i in range(3, 10, 2):
+#     x, y = [], []
+#     tau = 0.005
+#     while tau < 10:
+#         result = Result(n, i, tau)
+#         x.append(tau)
+#         y.append(result)
+#         tau += 0.1
+#
+#     l = "N = " + str(n) + ", M =" + str(i)
+#     plt.plot(x, y, label=l)
+#     plt.legend()
+#     plt.grid(True)
+#
+# plt.show()
+
+
+# Клевая таблица B)
 n, m = 10, 10
-tau = 0.005
-x, y = [], []
+tau = 1.0
 
-for i in range(3, 10):
-    x, y = [], []
-    tau = 0.005
-    while tau < 10:
-        result = Result(i, m, tau)
-        x.append(tau)
-        y.append(result)
-        tau += 0.1
+y1, y2 = [], []
+for i in range(3, 15):
+    result1 = Result(i, 10, tau)
+    result2 = Result(10, i, tau)
+    y1.append(result1)
+    y2.append(result2)
 
-    plt.plot(x, y, label="N = M =" + str(i))
-    plt.legend()
-    plt.grid(True)
+table = PrettyTable()
+table.add_column("Кол-во узлов", [i for i in range(3, 15)])
+table.add_column("Изменение по Симпсону", y1)
+table.add_column("Изменение по Гауссу", y2)
 
-plt.show()
+print(table)
