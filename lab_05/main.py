@@ -79,7 +79,7 @@ def Magic(N, M, tau):
     b = pi / 2
 
     # Господь всемогущий... это же для вычисления phi!
-    step = (b - a) / N
+    step = (b - a) / (N - (N % 2))
 
     sum = 0
     for i in range(N // 2):
@@ -105,6 +105,7 @@ def Result(N, M, tau):
     return I
 
 
+# Вывод графика на экран
 def make_plot(xdata, ydata):
     plt.plot(xdata, ydata)
     plt.grid(True)
@@ -113,13 +114,39 @@ def make_plot(xdata, ydata):
 # n, m = map(int, input("Введите кол-во участков разбиения по phi и по teta: ").split())
 # tau = float(input("Введите tau: "))
 
-n = m = 10
+
+#Обычный
+# n = m = 3
+# tau = 0.005
+# x, y = [], []
+# while tau < 10:
+#     result = Result(n, m, tau)
+#     x.append(tau)
+#     y.append(result)
+#     tau += 0.1
+#
+# for i in range(len(y)):
+#     print(y[i])
+#
+# make_plot(x, y)
+#
+
+# Вывод на экран от изменения n
+n, m = 10, 10
 tau = 0.005
 x, y = [], []
-while tau < 10:
-    result = Result(n, m, tau)
-    x.append(tau)
-    y.append(result)
-    tau += 0.1
 
-make_plot(x, y)
+for i in range(3, 10):
+    x, y = [], []
+    tau = 0.005
+    while tau < 10:
+        result = Result(i, m, tau)
+        x.append(tau)
+        y.append(result)
+        tau += 0.1
+
+    plt.plot(x, y, label="N = M =" + str(i))
+    plt.legend()
+    plt.grid(True)
+
+plt.show()
