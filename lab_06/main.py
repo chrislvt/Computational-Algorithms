@@ -11,7 +11,7 @@ def left(y_cur, y_prev, h):
 
 # Центральная формула для левой производной (боже че я только что написала)
 def center(y_next, y_prev, step):
-    return (y_next - y_prev) / h
+    return (y_next - y_prev) / (2 * step)
 
 
 # Центральная формула для x0
