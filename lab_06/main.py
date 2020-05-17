@@ -40,7 +40,7 @@ def method_2(input_data, step):
     output_data = []
     length = len(input_data)
     for i in range(1, length - 1):
-        output_data.append(center(input_data[i - 1], input_data[i + 1], step))
+        output_data.append(center(input_data[i + 1], input_data[i - 1], step))
 
     output_data.append(center_x0(input_data[0], input_data[1], input_data[2], step))
     output_data.append(center_x0(input_data[length - 1], input_data[length - 2], input_data[length - 3], step))
