@@ -48,6 +48,35 @@ def method_2(input_data, step):
     return output_data
 
 
+#  Ну тут очевидно по названию что эта формула делает
+def Runge_right(y_cur, y_next, y_next_next, step):
+    return (4 * y_next - 3 * y_cur - y_next_next) / (2 * step)
+
+
+def Runge_left(y_cur, y_prev, y_prev_prev, step):
+    return (3 * y_cur - 4 * y_prev + y_prev_prev) / (2 * step)
+
+
+# Формула Рунге с правосторонней производной
+def method_3_1(input_data, step):
+    output_data = []
+    for i in range(len(input_data) - 2):
+        output_data.append(Runge_right(input_data[i], input_data[i + 1], input_data[i + 2], step))
+
+    return output_data
+
+
+# Формула Рунге с левосторонней производной
+def method_3_2(input_data, step):
+    output_data = []
+    for i in range(2, len(input_data)):
+        output_data.append(Runge_left(input_data[i], input_data[i - 1], input_data[i - 2], step))
+
+    return output_data
+
+
+
+
 x = [1, 2, 3, 4, 5, 6]
 data = [0.571, 0.889, 1.091, 1.231, 1.333, 1.412]
 
@@ -57,6 +86,10 @@ h = 1
 
 d1 = method_1(data, h)
 d2 = method_2(data, h)
+d3_1 = method_3_1(data, h)
+d3_2 = method_3_2(data, h)
 
 print(d1)
 print(d2)
+print(d3_1)
+print(d3_2)
