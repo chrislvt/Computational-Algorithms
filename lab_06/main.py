@@ -20,7 +20,7 @@ data_31 = RightRunge(ydata, step)
 data_32 = LeftRunge(ydata, step)
 data_41 = RightReshape(xdata, ydata)
 data_42 = LeftReshape(xdata, ydata)
-
+data_5 = SecondCentral(ydata, step)
 
 
 table = PrettyTable()
@@ -33,8 +33,7 @@ table.add_column("Рунже правая", data_31)
 table.add_column("Рунже левая", data_32)
 table.add_column("Выравнивающая правая", data_41)
 table.add_column("Выравнивающая левая", data_42)
-
-# table.add_column("5", ['{:.3f}'.format(num) for num in d5])
+table.add_column("Вторая центральная", data_5)
 
 
 print(table)
