@@ -14,13 +14,14 @@ def center_xn(y_n, yn_1, yn_2, step):
 
 
 # Центральная разносторонняя производная
-def method_2(input_data, step):
-    output_data = [center_x0(input_data[0], input_data[1], input_data[2], step)]
+def Central(input_data, step):
+    result = [center_x0(input_data[0], input_data[1], input_data[2], step)]
 
     length = len(input_data)
     for i in range(1, length - 1):
-        output_data.append(center(input_data[i + 1], input_data[i - 1], step))
+        result.append(center(input_data[i + 1], input_data[i - 1], step))
 
-    output_data.append(center_xn(input_data[length - 1], input_data[length - 2], input_data[length - 3], step))
+    result.append(center_xn(input_data[length - 1], input_data[length - 2], input_data[length - 3], step))
 
-    return output_data
+    return ["{:.3f}".format(i) for i in result]
+
