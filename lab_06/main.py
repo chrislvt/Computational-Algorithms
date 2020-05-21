@@ -13,26 +13,26 @@ table = [xdata, ydata, [], [], [], [], []]
 
 step = 1
 
-data_11 = RightOneSided(ydata, step)
-data_12 = LeftOneSided(ydata, step)
+data_12 = RightOneSided(ydata, step)
+data_11 = LeftOneSided(ydata, step)
 data_2 = Central(ydata, step)
-data_31 = RightRunge(ydata, step)
-data_32 = LeftRunge(ydata, step)
-data_41 = RightReshape(xdata, ydata)
-data_42 = LeftReshape(xdata, ydata)
+data_32 = RightRunge(ydata, step)
+data_31 = LeftRunge(ydata, step)
+data_42 = RightReshape(xdata, ydata)
+data_41 = LeftReshape(xdata, ydata)
 data_5 = SecondCentral(ydata, step)
 
 
 table = PrettyTable()
 table.add_column("x", xdata)
 table.add_column("y", ydata)
-table.add_column("Правосторонная", data_11)
-table.add_column("Левосторонняя", data_12)
+table.add_column("Левосторонняя", data_11)
+table.add_column("Правосторонняя", data_12)
 table.add_column("Центральная", data_2)
-table.add_column("Рунже правая", data_31)
-table.add_column("Рунже левая", data_32)
-table.add_column("Выравнивающая правая", data_41)
-table.add_column("Выравнивающая левая", data_42)
+table.add_column("Рунже левая", data_31)
+table.add_column("Рунже правая", data_32)
+table.add_column("Выравнивающая левая", data_41)
+table.add_column("Выравнивающая правая", data_42)
 table.add_column("Вторая центральная", data_5)
 
 
