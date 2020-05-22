@@ -1,4 +1,4 @@
-# Центральная формула для левой производной (боже че я только что написала)
+# Центральная формула для левой производной
 def center(y_next, y_prev, step):
     return (y_next - y_prev) / (2 * step)
 
@@ -13,7 +13,6 @@ def center_xn(y_n, yn_1, yn_2, step):
     return (3 * y_n - 4 * yn_1 + yn_2) / (2 * step)
 
 
-# Центральная разносторонняя производная
 def Central(input_data, step):
     result = [center_x0(input_data[0], input_data[1], input_data[2], step)]
 

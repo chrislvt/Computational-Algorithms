@@ -8,7 +8,6 @@ def left(y_cur, y_prev, step):
     return (y_cur - y_prev) / step
 
 
-# Вычисление производных с помощью правосторонней формулы
 def RightOneSided(ydata, step):
     result = []
     for i in range(len(ydata) - 1):
@@ -19,7 +18,6 @@ def RightOneSided(ydata, step):
     return result
 
 
-# Вычисление производных с помощью левосторонней формулы
 def LeftOneSided(ydata, step):
     result = ["-"]
     for i in range(1, len(ydata)):
