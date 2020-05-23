@@ -1,4 +1,4 @@
 Лабораторные работы по курсу "Вычислительные алгоритмы".
 
 Шестая лабораторная работа 
-[тестовая проверка если вы именно в эту секнду видите это мне стыдно](https://github.com/chrislvt/Computational-Algorithms.wiki.git)
+[тестовая проверка если вы именно в эту секнду видите это мне стыдно](https://github.com/chrislvt/Computational-Algorithms/wiki/%D0%9B%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-%E2%84%96-6)
